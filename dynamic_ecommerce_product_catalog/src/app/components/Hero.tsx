@@ -2,19 +2,21 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="bg-neutral-100 px-6 py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
-        <div className="space-y-6">
-          <h1 className="text-4xl font-semibold leading-tight text-neutral-900 md:text-5xl">
-            TIMELESS MEN’S FASHION FOR EVERY MOMENT
+    <section className="bg-neutral-100 px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:items-center md:gap-12">
+        <div className="space-y-4 text-center md:space-y-6 md:text-left">
+          <h1 className="text-3xl font-semibold leading-tight text-neutral-900 sm:text-4xl md:text-5xl">
+            TIMELESS MEN&apos;S FASHION FOR EVERY MOMENT
           </h1>
-          <p className="text-lg text-neutral-600">
+          <p className="text-base text-neutral-600 sm:text-lg">
             Find clothes that match your vibe. Designed for men who want to look
             good effortlessly.
           </p>
-          <button className="rounded-full bg-black px-10 py-3 text-sm font-semibold tracking-wide text-white">
-            Start shopping
-          </button>
+          <div className="flex justify-center md:justify-start">
+            <button className="w-full rounded-full bg-black px-6 py-3 text-sm font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800 sm:w-auto sm:px-10">
+              Start shopping
+            </button>
+          </div>
         </div>
 
         <div className="flex items-center justify-center">
@@ -24,7 +26,7 @@ const Hero = () => {
             width={1000}
             height={736}
             priority
-            className="h-full w-full max-w-[460px] object-contain"
+            className="h-auto w-full max-w-[460px] object-contain"
           />
         </div>
       </div>

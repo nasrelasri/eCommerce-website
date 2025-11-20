@@ -16,15 +16,15 @@ const payments = [
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-200 px-6 py-16 text-neutral-800">
+    <footer className="bg-neutral-200 px-4 py-16 text-neutral-800 sm:px-6">
       <div className="mx-auto max-w-6xl space-y-10">
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
           <div className="text-2xl font-semibold tracking-tight">PRIME</div>
           <p className="max-w-md text-base text-center text-neutral-700">
             Find clothes that match your vibe. Designed for men who want to look
             good effortlessly.
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center gap-3 md:justify-end">
             {socials.map((network) => (
               <span
                 key={network.name}
@@ -44,9 +44,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-neutral-400 pt-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-6 text-center md:flex-row md:items-start md:justify-between md:text-left">
             <p className="text-sm text-neutral-600">Prime.com © 2025</p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3 md:justify-end">
               {payments.map((brand) => (
                 <span
                   key={brand.name}
