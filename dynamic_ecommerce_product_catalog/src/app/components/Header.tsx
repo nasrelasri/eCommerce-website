@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
-  { label: "Shop", href: "#" },
+  { label: "Shop", href: "/products" },
   { label: "About", href: "#" },
   { label: "Contact", href: "#" },
 ];
@@ -112,14 +112,14 @@ const Header = () => {
           <nav className="mt-4 border-t border-neutral-200 pt-4 md:hidden">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>
@@ -133,9 +133,9 @@ const Header = () => {
 
           <nav className="flex items-center justify-center gap-10 text-sm font-medium text-neutral-600">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="hover:text-neutral-900">
+              <Link key={item.label} href={item.href} className="hover:text-neutral-900">
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

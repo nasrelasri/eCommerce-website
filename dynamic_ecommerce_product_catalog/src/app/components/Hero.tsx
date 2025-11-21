@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -13,9 +14,12 @@ const Hero = () => {
             good effortlessly.
           </p>
           <div className="flex justify-center md:justify-start">
-            <button className="w-full rounded-full bg-black px-6 py-3 text-sm font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800 sm:w-auto sm:px-10">
+            <Link
+              href="/products"
+              className="w-full rounded-full bg-black px-6 py-3 text-center text-sm font-semibold tracking-wide text-white transition-colors hover:bg-neutral-800 sm:w-auto sm:px-10"
+            >
               Start shopping
-            </button>
+            </Link>
           </div>
         </div>
 
