@@ -6,6 +6,9 @@ export type Product = {
   price: string;
   originalPrice?: string;
   discount?: string;
+  category: string;
+  size: string[];
+  isTrending: boolean;
 };
 
 export const mockProducts: Product[] = [
@@ -18,6 +21,9 @@ export const mockProducts: Product[] = [
     price: "$198",
     originalPrice: "$230",
     discount: "15% off",
+    category: "Jackets",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "merino-crew-sweater",
@@ -28,6 +34,9 @@ export const mockProducts: Product[] = [
     price: "$145",
     originalPrice: "$172",
     discount: "16% off",
+    category: "Sweaters",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "heritage-oxford-shirt",
@@ -38,6 +47,9 @@ export const mockProducts: Product[] = [
     price: "$92",
     originalPrice: "$108",
     discount: "15% off",
+    category: "Shirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "tailored-wool-blazer",
@@ -48,6 +60,9 @@ export const mockProducts: Product[] = [
     price: "$320",
     originalPrice: "$400",
     discount: "20% off",
+    category: "Blazers",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "pleated-wool-trousers",
@@ -58,6 +73,9 @@ export const mockProducts: Product[] = [
     price: "$210",
     originalPrice: "$248",
     discount: "15% off",
+    category: "Pants",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "linen-resort-shirt",
@@ -68,6 +86,9 @@ export const mockProducts: Product[] = [
     price: "$128",
     originalPrice: "$150",
     discount: "15% off",
+    category: "Shirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "cashmere-shawl-cardigan",
@@ -78,6 +99,9 @@ export const mockProducts: Product[] = [
     price: "$265",
     originalPrice: "$312",
     discount: "15% off",
+    category: "Sweaters",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "double-breasted-topcoat",
@@ -88,6 +112,9 @@ export const mockProducts: Product[] = [
     price: "$580",
     originalPrice: "$640",
     discount: "9% off",
+    category: "Coats",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "performance-pique-polo",
@@ -98,6 +125,9 @@ export const mockProducts: Product[] = [
     price: "$98",
     originalPrice: "$112",
     discount: "12% off",
+    category: "Shirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "suede-bomber-jacket",
@@ -108,6 +138,9 @@ export const mockProducts: Product[] = [
     price: "$450",
     originalPrice: "$520",
     discount: "13% off",
+    category: "Jackets",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "organic-supima-tee",
@@ -118,6 +151,9 @@ export const mockProducts: Product[] = [
     price: "$48",
     originalPrice: "$58",
     discount: "17% off",
+    category: "T-Shirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "seamless-puffer-vest",
@@ -128,6 +164,9 @@ export const mockProducts: Product[] = [
     price: "$198",
     originalPrice: "$230",
     discount: "14% off",
+    category: "Jackets",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "heritage-work-boot",
@@ -138,6 +177,9 @@ export const mockProducts: Product[] = [
     price: "$285",
     originalPrice: "$330",
     discount: "14% off",
+    category: "Shoes",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "minimalist-leather-sneaker",
@@ -148,6 +190,9 @@ export const mockProducts: Product[] = [
     price: "$215",
     originalPrice: "$248",
     discount: "13% off",
+    category: "Shoes",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "recycled-fleece-hoodie",
@@ -158,6 +203,9 @@ export const mockProducts: Product[] = [
     price: "$128",
     originalPrice: "$150",
     discount: "15% off",
+    category: "Hoodies",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "travel-tech-blazer",
@@ -168,6 +216,9 @@ export const mockProducts: Product[] = [
     price: "$360",
     originalPrice: "$410",
     discount: "12% off",
+    category: "Blazers",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "japanese-raw-denim",
@@ -178,6 +229,9 @@ export const mockProducts: Product[] = [
     price: "$240",
     originalPrice: "$280",
     discount: "14% off",
+    category: "Pants",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "ultralight-hiking-shell",
@@ -188,6 +242,9 @@ export const mockProducts: Product[] = [
     price: "$210",
     originalPrice: "$248",
     discount: "15% off",
+    category: "Jackets",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "quilted-field-jacket",
@@ -198,6 +255,9 @@ export const mockProducts: Product[] = [
     price: "$310",
     originalPrice: "$360",
     discount: "14% off",
+    category: "Jackets",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "classic-trench-coat",
@@ -208,6 +268,9 @@ export const mockProducts: Product[] = [
     price: "$540",
     originalPrice: "$600",
     discount: "10% off",
+    category: "Coats",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "airweight-running-short",
@@ -218,6 +281,9 @@ export const mockProducts: Product[] = [
     price: "$68",
     originalPrice: "$82",
     discount: "17% off",
+    category: "Shorts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "refined-knit-polo",
@@ -228,6 +294,9 @@ export const mockProducts: Product[] = [
     price: "$138",
     originalPrice: "$162",
     discount: "15% off",
+    category: "Shirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "textured-terry-sweatshirt",
@@ -238,6 +307,9 @@ export const mockProducts: Product[] = [
     price: "$128",
     originalPrice: "$150",
     discount: "15% off",
+    category: "Sweatshirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "heirloom-leather-belt",
@@ -248,6 +320,9 @@ export const mockProducts: Product[] = [
     price: "$98",
     originalPrice: "$118",
     discount: "17% off",
+    category: "Accessories",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "artisan-weekender-bag",
@@ -258,6 +333,9 @@ export const mockProducts: Product[] = [
     price: "$420",
     originalPrice: "$480",
     discount: "12% off",
+    category: "Bags",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "everyday-crossbody-pack",
@@ -268,6 +346,9 @@ export const mockProducts: Product[] = [
     price: "$88",
     originalPrice: "$104",
     discount: "15% off",
+    category: "Bags",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "stormproof-parka",
@@ -278,6 +359,9 @@ export const mockProducts: Product[] = [
     price: "$580",
     originalPrice: "$650",
     discount: "11% off",
+    category: "Coats",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "studio-yoga-jogger",
@@ -288,6 +372,9 @@ export const mockProducts: Product[] = [
     price: "$98",
     originalPrice: "$120",
     discount: "18% off",
+    category: "Pants",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "hybrid-commuter-coat",
@@ -298,6 +385,9 @@ export const mockProducts: Product[] = [
     price: "$420",
     originalPrice: "$470",
     discount: "11% off",
+    category: "Coats",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "eco-dyed-cable-knit",
@@ -308,6 +398,9 @@ export const mockProducts: Product[] = [
     price: "$185",
     originalPrice: "$214",
     discount: "14% off",
+    category: "Sweaters",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "seaside-camp-shirt",
@@ -318,6 +411,9 @@ export const mockProducts: Product[] = [
     price: "$115",
     originalPrice: "$135",
     discount: "15% off",
+    category: "Shirts",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "technical-biker-jacket",
@@ -328,6 +424,9 @@ export const mockProducts: Product[] = [
     price: "$510",
     originalPrice: "$580",
     discount: "12% off",
+    category: "Jackets",
+    size: ["S", "M", "L"],
+    isTrending: true,
   },
   {
     id: "woven-panama-hat",
@@ -338,6 +437,9 @@ export const mockProducts: Product[] = [
     price: "$88",
     originalPrice: "$104",
     discount: "15% off",
+    category: "Accessories",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
   {
     id: "heritage-satchel-pack",
@@ -348,5 +450,8 @@ export const mockProducts: Product[] = [
     price: "$260",
     originalPrice: "$298",
     discount: "13% off",
+    category: "Bags",
+    size: ["S", "M", "L"],
+    isTrending: false,
   },
 ];
