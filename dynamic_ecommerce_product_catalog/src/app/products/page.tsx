@@ -27,6 +27,9 @@ const ProductsPage = () => {
     priceMinMax.max,
   ]);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const [sortBy, setSortBy] = useState<"featured" | "price-low" | "price-high">(
+    "featured"
+  );
 
   // Extract unique categories from products
   const availableCategories = useMemo(() => {
@@ -34,9 +37,9 @@ const ProductsPage = () => {
     return Array.from(new Set(categories)).sort();
   }, []);
 
-  // Filter products based on selected categories and price range
+  // Filter and sort products based on selected categories, price range, and sort option
   const filteredProducts = useMemo(() => {
-    return mockProducts.filter((product) => {
+    const filtered = mockProducts.filter((product) => {
       const price = parseFloat(product.price.replace("$", ""));
       const categoryMatch =
         selectedCategories.length === 0 ||
@@ -44,7 +47,25 @@ const ProductsPage = () => {
       const priceMatch = price >= priceRange[0] && price <= priceRange[1];
       return categoryMatch && priceMatch;
     });
-  }, [selectedCategories, priceRange]);
+
+    // Apply sorting
+    const sorted = [...filtered];
+    if (sortBy === "price-low") {
+      sorted.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace("$", ""));
+        const priceB = parseFloat(b.price.replace("$", ""));
+        return priceA - priceB;
+      });
+    } else if (sortBy === "price-high") {
+      sorted.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace("$", ""));
+        const priceB = parseFloat(b.price.replace("$", ""));
+        return priceB - priceA;
+      });
+    }
+
+    return sorted;
+  }, [selectedCategories, priceRange, sortBy]);
 
   // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
@@ -246,7 +267,7 @@ const ProductsPage = () => {
 
           {/* Main Content */}
           <div className="flex flex-1 flex-col gap-10">
-            <header className="flex items-center justify-between gap-4">
+            <header className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 {/* Mobile Filter Button */}
                 <button
@@ -279,16 +300,41 @@ const ProductsPage = () => {
                     </span>
                   )}
                 </button>
-                <h1 className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500">
+                <h1 className="hidden text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500 sm:block">
                   Products
                 </h1>
               </div>
-              {filteredProducts.length !== mockProducts.length && (
-                <p className="hidden text-sm text-neutral-600 sm:block">
-                  Showing {filteredProducts.length} of {mockProducts.length}{" "}
-                  products
-                </p>
-              )}
+              <div className="flex items-center gap-4">
+                {filteredProducts.length !== mockProducts.length && (
+                  <p className="hidden text-sm text-neutral-600 sm:block">
+                    Showing {filteredProducts.length} of {mockProducts.length}{" "}
+                    products
+                  </p>
+                )}
+                {/* Sort Dropdown */}
+                <div className="flex items-center gap-2">
+                  <label
+                    htmlFor="sort-select"
+                    className="hidden text-sm font-medium text-neutral-700 sm:inline"
+                  >
+                    Sort by:
+                  </label>
+                  <select
+                    id="sort-select"
+                    value={sortBy}
+                    onChange={(e) =>
+                      setSortBy(
+                        e.target.value as "featured" | "price-low" | "price-high"
+                      )
+                    }
+                    className="rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-neutral-700 transition hover:border-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900"
+                  >
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                  </select>
+                </div>
+              </div>
             </header>
 
             <section aria-live="polite">
