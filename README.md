@@ -5,12 +5,12 @@ ALX Capstone Project — ProDev Front-end Engineering Program
 ## 📘 Overview of the ProDev Front-end Engineering Program
 
 The **ALX ProDev Frontend Engineering program** is an intensive professional training that focuses on building real-world, industry-ready web developers.
-Through the program, learners gain hands-on experience in modern frontend technologies, collaboration, and system design — developing the ability to build and deploy full-stack web applications in partnership with backend engineers.
+Through the program, learners gain hands-on experience in modern frontend technologies, collaboration, and system design — developing the ability to build and deploy full-stack web applications.
 
 The curriculum emphasizes:
 
 - Scalable frontend architecture
-- Integration with real APIs
+- Simulating integration with real APIs
 - Agile collaboration and version control
 - Deployment and product presentation
 
@@ -42,13 +42,13 @@ The curriculum emphasizes:
 
 ### 🎯 Goal
 
-To design and develop a Dynamic E-Commerce Product Catalog web application that allows users to browse, search, and view products dynamically — integrating data from a backend API.
+To design and develop a Dynamic E-Commerce Product Catalog web application that allows users to browse, search, and view products dynamically — simulate integration of data from a backend API.
 
 ### 🔍 Key Features
 
 1. **API Data Integration**
 
-    - Fetch and display product data dynamically from a backend API.
+    - Simulate fetching and displaying product data dynamically from a backend API.
     - Ensure smooth loading of products with error handling and loading states.
 
 2. **Filtering and Sorting**
@@ -57,10 +57,9 @@ To design and develop a Dynamic E-Commerce Product Catalog web application that 
     - Price Sorting: Enable sorting by ascending or descending prices.
     - Multi-Criteria Filters: Combine filters for refined results.
 
-3. **Pagination and Infinite Scrolling**
+3. **Pagination**
 
     - Pagination: Provide numbered navigation for viewing products in chunks.
-    - Infinite Scrolling: Load products dynamically as users scroll, enhancing usability.
 
 4. **Responsive Design**
 
@@ -83,13 +82,7 @@ Follow these steps to run the project locally.
     npm install
     ```
 
-3. Create an .env.local file in the project root and add your backend URL
-
-    ```bash
-    NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000/api
-    ```
-
-4. Run the development server:
+3. Run the development server:
 
     ```bash
     npm run dev
@@ -98,13 +91,9 @@ Follow these steps to run the project locally.
 The application should now be running at
 👉 <http://localhost:3000>
 
-## Collaboration
-
-This project was developed collaboratively as part of the capstone experience:
-
 ## Deployment
 
-Next.js: [Vercel URL](https://vercel.com)
+Next.js: [Vercel URL](https://alx-project-nexus-delta.vercel.app/)
 
 ## License
 
