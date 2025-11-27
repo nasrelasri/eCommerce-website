@@ -1,100 +1,36 @@
-# 🛍️ Dynamic E-Commerce Product Catalog
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-ALX Capstone Project — ProDev Front-end Engineering Program
+## Getting Started
 
-## 📘 Overview of the ProDev Front-end Engineering Program
+First, run the development server:
 
-The **ALX ProDev Frontend Engineering program** is an intensive professional training that focuses on building real-world, industry-ready web developers.
-Through the program, learners gain hands-on experience in modern frontend technologies, collaboration, and system design — developing the ability to build and deploy full-stack web applications.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-The curriculum emphasizes:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Scalable frontend architecture
-- Simulating integration with real APIs
-- Agile collaboration and version control
-- Deployment and product presentation
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🧠 Major Learnings
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### 🧩 Key Technologies Covered
+## Learn More
 
-| **Area**                            | **Technologies**                                              |
-|-------------------------------------|---------------------------------------------------------------|
-| **Web Development**                 | HTML5, CSS3, JavaScript (ES6+), TypeScript                    |
-| **Frontend Framework**              | Next.js (React-based SSR framework)                           |
-| **Styling & UI**                    | Tailwind CSS, Responsive Design, Component-based Architecture |
-| **API Integration**                 | RESTful APIs, Axios, JSON handling, Error management          |
-| **System Design & Analysis**        | Component hierarchy, Routing, Data flow, and State management |
-| **Version Control & Collaboration** | Git, GitHub, Branching strategies, Pull Requests              |
-| **Deployment**                      | Vercel, Environment variables, CI/CD best practices           |
+To learn more about Next.js, take a look at the following resources:
 
-### 💡 Core Frontend Concepts Learned
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- **Next.js Fundamentals**: Server-side rendering (SSR), static generation (SSG), and incremental static regeneration (ISR) for SEO and performance.
-- **Tailwind CSS**: Fast, utility-first styling and design consistency across responsive breakpoints.
-- **TypeScript**: Strong typing for cleaner, maintainable, and error-resistant code.
-- **API Integration**: Fetching and displaying live data from a REST API, handling asynchronous calls, and error boundaries.
-- **System Design & Analysis**: Mapping data flow between frontend components and backend endpoints.
-- **Reusable Components**: Modular UI architecture that simplifies scalability and updates.
-- **GraphQL Awareness**: Understanding how GraphQL differs from REST for structured data queries.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## ⚙️ Project Description
+## Deploy on Vercel
 
-### 🎯 Goal
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-To design and develop a Dynamic E-Commerce Product Catalog web application that allows users to browse, search, and view products dynamically — simulate integration of data from a backend API.
-
-### 🔍 Key Features
-
-1. **API Data Integration**
-
-    - Simulate fetching and displaying product data dynamically from a backend API.
-    - Ensure smooth loading of products with error handling and loading states.
-
-2. **Filtering and Sorting**
-
-    - Category Filtering: Allow users to view products based on selected categories.
-    - Price Sorting: Enable sorting by ascending or descending prices.
-    - Multi-Criteria Filters: Combine filters for refined results.
-
-3. **Pagination**
-
-    - Pagination: Provide numbered navigation for viewing products in chunks.
-
-4. **Responsive Design**
-
-    - Ensure the catalog is fully responsive across devices, including desktops, tablets, and mobile phones.
-
-## 🧩 Setup & Installation
-
-Follow these steps to run the project locally.
-
-1. Clone the repository
-
-    ```bash
-    git clone https://github.com/nasrelasri/alx-project-nexus.git
-    cd alx-project-nexus
-    ```
-
-2. Install dependencies:
-
-    ```bash
-    npm install
-    ```
-
-3. Run the development server:
-
-    ```bash
-    npm run dev
-    ```
-
-The application should now be running at
-👉 <http://localhost:3000>
-
-## Deployment
-
-Next.js: [Vercel URL](https://alx-project-nexus-delta.vercel.app/)
-
-## License
-
-This project is part of the ALX ProDev Frontend Engineering Capstone and is intended for educational and portfolio use.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
