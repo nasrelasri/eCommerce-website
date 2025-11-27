@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +11,15 @@ import { productService } from "../../services/productService";
 import { useCart } from "../../context/CartContext";
 
 const TOTAL_STARS = 5;
+
+const getReviewCount = (productId: string) => {
+  let hash = 0;
+  for (let i = 0; i < productId.length; i++) {
+    hash = (hash << 5) - hash + productId.charCodeAt(i);
+    hash |= 0;
+  }
+  return 50 + (Math.abs(hash) % 200);
+};
 
 const ProductDetailPage = () => {
   const params = useParams();
@@ -73,6 +82,10 @@ const ProductDetailPage = () => {
     ? Math.min(Math.max(product.rating, 0), TOTAL_STARS)
     : 0;
   const displayRating = normalizedRating.toFixed(1);
+  const reviewCount = useMemo(
+    () => (product ? getReviewCount(product.id) : 0),
+    [product?.id]
+  );
 
   // Loading state
   if (isLoading) {
@@ -218,7 +231,7 @@ const ProductDetailPage = () => {
                     })}
                   </div>
                   <span className="text-sm font-medium text-neutral-600">
-                    {displayRating} ({Math.floor(Math.random() * 200 + 50)} reviews)
+                    {displayRating} ({reviewCount} reviews)
                   </span>
                 </div>
 
