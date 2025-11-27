@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type ProductCardProps = {
+  id: string;
   image: string;
   title: string;
   rating: number;
@@ -12,6 +14,7 @@ type ProductCardProps = {
 const TOTAL_STARS = 5;
 
 const ProductCard = ({
+  id,
   image,
   title,
   rating,
@@ -23,19 +26,20 @@ const ProductCard = ({
   const displayRating = normalizedRating.toFixed(1);
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
-      <div className="relative h-64 w-full overflow-hidden bg-neutral-100">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-        />
-      </div>
+    <Link href={`/products/${id}`}>
+      <article className="flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <div className="relative h-64 w-full overflow-hidden bg-neutral-100">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
 
-      <div className="flex flex-1 flex-col gap-4 p-5">
-        <h3 className="text-lg font-semibold text-neutral-900">{title}</h3>
+        <div className="flex flex-1 flex-col gap-4 p-5">
+          <h3 className="text-lg font-semibold text-neutral-900">{title}</h3>
 
         <div className="flex items-center justify-between">
           <div
@@ -83,6 +87,7 @@ const ProductCard = ({
         </div>
       </div>
     </article>
+    </Link>
   );
 };
 

@@ -106,6 +106,28 @@ export const productService = {
       }
       throw error;
     }
+  },
+
+  /**
+   * Fetch a single product by ID
+   * @param id - Product ID
+   * @returns Promise with the product or null if not found
+   */
+  async getProductById(id: string): Promise<Product | null> {
+    try {
+      const response = await axios.get<{ success: boolean; data: Product }>(`${API_BASE_URL}/${id}`);
+      return response.data.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        if (axiosError.response?.status === 404) {
+          return null;
+        }
+        console.error('Error fetching product:', axiosError.response?.data?.message || axiosError.message);
+        throw new Error(axiosError.response?.data?.message || 'Failed to fetch product');
+      }
+      throw error;
+    }
   }
 };
 
