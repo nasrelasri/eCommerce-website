@@ -24,7 +24,7 @@ const CartPage = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-white text-neutral-900">
+      <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden">
         <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
         <main className="px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
@@ -67,7 +67,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900">
+    <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <main className="px-4 py-12 sm:px-6 lg:px-8">
@@ -85,18 +85,18 @@ const CartPage = () => {
             </button>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3 lg:items-start">
             {/* Cart Items */}
             <div className="lg:col-span-2">
               <div className="space-y-6">
                 {cartItems.map((item) => (
                   <div
                     key={`${item.productId}-${item.size}`}
-                    className="flex gap-6 rounded-2xl border border-neutral-200 bg-white p-6"
+                    className="flex flex-col gap-6 rounded-2xl border border-neutral-200 bg-white p-6 md:flex-row"
                   >
                     <Link
                       href={`/products/${item.productId}`}
-                      className="relative h-32 w-32 shrink-0 overflow-hidden rounded-lg bg-neutral-100"
+                      className="relative h-56 w-full overflow-hidden rounded-lg bg-neutral-100 md:h-32 md:w-32 md:shrink-0"
                     >
                       <Image
                         src={item.product.image}
@@ -106,12 +106,12 @@ const CartPage = () => {
                         className="object-cover transition-transform hover:scale-105"
                       />
                     </Link>
-                    <div className="flex flex-1 flex-col gap-4">
+                    <div className="flex flex-1 min-w-0 flex-col gap-4">
                       <div className="flex items-start justify-between">
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <Link
                             href={`/products/${item.productId}`}
-                            className="text-lg font-semibold text-neutral-900 hover:text-neutral-600"
+                            className="block text-lg font-semibold text-neutral-900 hover:text-neutral-600"
                           >
                             {item.product.title}
                           </Link>

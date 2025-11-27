@@ -46,7 +46,7 @@ const CartDropdown = ({ isOpen, onClose }: CartDropdownProps) => {
       <div
         ref={dropdownRef}
         onClick={(e) => e.stopPropagation()}
-        className="fixed right-4 top-20 z-50 w-full max-w-md overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-xl"
+        className="fixed inset-x-4 top-20 z-50 w-auto max-w-md overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-xl sm:inset-x-auto sm:right-4 sm:w-full"
       >
         <div className="flex max-h-[calc(100vh-8rem)] flex-col">
           {/* Header */}
