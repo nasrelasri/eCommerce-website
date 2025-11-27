@@ -8,6 +8,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { Product } from "../mockData";
 import { productService } from "../../services/productService";
+import { useCart } from "../../context/CartContext";
 
 const TOTAL_STARS = 5;
 
@@ -22,6 +23,8 @@ const ProductDetailPage = () => {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [quantity, setQuantity] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -55,8 +58,11 @@ const ProductDetailPage = () => {
       alert("Please select a size");
       return;
     }
-    // TODO: Implement cart functionality
-    alert(`Added ${quantity} ${product?.title} (${selectedSize}) to cart!`);
+    if (!product) return;
+
+    addToCart(product, selectedSize, quantity);
+    setShowSuccessMessage(true);
+    setTimeout(() => setShowSuccessMessage(false), 3000);
   };
 
   const handleQuantityChange = (delta: number) => {
@@ -304,13 +310,20 @@ const ProductDetailPage = () => {
               </div>
 
               {/* Add to Cart Button */}
-              <button
-                onClick={handleAddToCart}
-                className="w-full rounded-full bg-neutral-900 px-8 py-4 text-lg font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50"
-                disabled={!selectedSize}
-              >
-                Add to Cart
-              </button>
+              <div className="space-y-3">
+                <button
+                  onClick={handleAddToCart}
+                  className="w-full rounded-full bg-neutral-900 px-8 py-4 text-lg font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50"
+                  disabled={!selectedSize}
+                >
+                  Add to Cart
+                </button>
+                {showSuccessMessage && (
+                  <div className="rounded-lg bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-800">
+                    ✓ Added to cart successfully!
+                  </div>
+                )}
+              </div>
 
               {/* Product Description */}
               <div className="border-t border-neutral-200 pt-6">

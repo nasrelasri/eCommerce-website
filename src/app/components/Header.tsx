@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useCart } from "../context/CartContext";
+import CartDropdown from "./CartDropdown";
 
 const navItems = [
   { label: "Shop", href: "/products" },
@@ -16,7 +18,10 @@ interface HeaderProps {
 
 const Header = ({ searchQuery = "", onSearchChange }: HeaderProps = {}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [localSearch, setLocalSearch] = useState(searchQuery);
+  const { getTotalItems } = useCart();
+  const cartItemCount = getTotalItems();
 
   // Sync with parent searchQuery
   useEffect(() => {
@@ -107,7 +112,8 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps = {}) => {
 
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 text-neutral-800 transition-colors hover:text-neutral-900 focus:outline-none cursor-pointer"
+              onClick={() => setIsCartOpen(true)}
+              className="relative inline-flex items-center justify-center p-2 text-neutral-800 transition-colors hover:text-neutral-900 focus:outline-none cursor-pointer"
               aria-label="Open cart"
             >
               <svg
@@ -126,10 +132,14 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps = {}) => {
                 <circle cx="9" cy="19" r="1" fill="currentColor" />
                 <circle cx="17" cy="19" r="1" fill="currentColor" />
               </svg>
+              {cartItemCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-neutral-900 text-xs font-semibold text-white">
+                  {cartItemCount > 9 ? "9+" : cartItemCount}
+                </span>
+              )}
             </button>
           </div>
         </div>
-
         {/* Mobile menu */}
         {isMenuOpen && (
           <nav className="mt-4 border-t border-neutral-200 pt-4 md:hidden">
@@ -218,7 +228,8 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps = {}) => {
 
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 text-neutral-800 transition-colors hover:text-neutral-900 focus:outline-none cursor-pointer"
+              onClick={() => setIsCartOpen(true)}
+              className="relative inline-flex items-center justify-center p-2 text-neutral-800 transition-colors hover:text-neutral-900 focus:outline-none cursor-pointer"
               aria-label="Open cart"
             >
               <svg
@@ -237,10 +248,16 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps = {}) => {
                 <circle cx="9" cy="19" r="1" fill="currentColor" />
                 <circle cx="17" cy="19" r="1" fill="currentColor" />
               </svg>
+              {cartItemCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-neutral-900 text-xs font-semibold text-white">
+                  {cartItemCount > 9 ? "9+" : cartItemCount}
+                </span>
+              )}
             </button>
           </form>
         </div>
       </div>
+      <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };
